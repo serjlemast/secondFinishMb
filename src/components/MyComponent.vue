@@ -17,5 +17,24 @@ export default {
       ],
     };
   },
+  watch: {
+    searchName: function (val) {
+      if (!val || val.length === 0) {
+        console.log("watch: name is empty");
+        this.serchFeild = "";
+        return;
+      }
+      var names = this.userNames.filter(function (user) {
+        var name = user.name;
+        return name.search(val) != -1;
+      });
+      if (names.length == 0) {
+        console.log("watch: name is empty");
+        this.serchFeild = "";
+        return;
+      }
+      this.serchFeild = names;
+    },
+  },
 };
 </script>
