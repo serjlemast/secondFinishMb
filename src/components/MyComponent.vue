@@ -1,5 +1,19 @@
 <template>
-  <div class="root"></div>
+  <div class="root">
+    <h1>{{ titleName }}</h1>
+    <label>
+      <input type="serch" v-model="searchName" />
+    </label>
+
+    <h2>Search:{{ serchFeild }}</h2>
+
+    <h4>Всего имен: {{ searchName.length }}</h4>
+    <ul>
+      <li v-for="(value, index) in userNames" :key="index">
+        {{ value.name }}
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
